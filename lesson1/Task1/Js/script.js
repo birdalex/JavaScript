@@ -1,6 +1,6 @@
 var budget=prompt("Введите Ваш бюджет");
 var shopName=prompt("Введите название магазина");
-var shopGoods=[2];
+var shopGoods=[];
 for(i=0;i<=2;i++){
 	shopGoods[i]=prompt('Какой тип товаров будем продавать');
 };
