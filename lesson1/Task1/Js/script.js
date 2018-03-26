@@ -1,19 +1,18 @@
-var budget=prompt("Введите Ваш бюджет");
-var shopName=prompt("Введите название магазина");
-var shopGoods=[];
-for(i=0;i<=2;i++){
-	shopGoods[i]=prompt('Какой тип товаров будем продавать');
-};
-var mainList={
-	budget,
-	shopName,
-	shopGoods,
+let yourBudget=prompt("Введите Ваш бюджет","Введите Ваш бюджет");
+let yourShopName=prompt("Введите название магазина","Введите название магазина");
+let mainList={
+	budget: 0,
+	shopName:'',
+	shopGoods:[],
 	employers:{
 
 	},
-	open
+	open:true
 };
-document.write('Ваш бюджет на один день ='+budget/30);
+mainList.shopGoods[0]=prompt("Какой тип товаров будем продавать?","Какой тип товаров будем продавать?");
+mainList.shopGoods[1]=prompt("Какой тип товаров будем продавать?","Какой тип товаров будем продавать?");
+mainList.shopGoods[2]=prompt("Какой тип товаров будем продавать?","Какой тип товаров будем продавать?");
+alert('Ваш бюджет на один день ='+yourBudget/30);
 console.log(mainList);
 
 
