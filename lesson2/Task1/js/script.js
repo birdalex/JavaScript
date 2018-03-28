@@ -11,16 +11,13 @@ let mainList={
 };
 for(let i=0; i<3;i++) {
 		let a=prompt("Введите вид товара","");
-		if(a!='' && (typeof(a))==='string' && a.length<50) {
+		if((typeof(a))!==null && a!='' && (typeof(a))==='string' && a.length<50) {
 			if(!isNaN(a)) {
 				alert('Вы ввели число');
 				i=i-1;
 				continue;
 			}
 				mainList.shopGoods[i]=a;
-		}
-		else if(a===null) {
-			break;
 		}
 		else {
 			alert('Вы ничего не ввели,Повторте попытку');
@@ -33,7 +30,7 @@ console.log(mainList);
 // let i=0;
 // while(count<3){
 // 	let a=prompt("Введите вид товара","");
-// 		if(a!='' && (typeof(a))==='string' && a.length<50) {
+// 		if((typeof(a))!==null && a!='' && (typeof(a))==='string' && a.length<50) {
 // 			if(!isNaN(a)) {
 // 				alert('Вы ввели число');
 // 				continue;
@@ -41,9 +38,6 @@ console.log(mainList);
 // 				mainList.shopGoods[i]=a;
 // 				i++;
 // 				count++;
-// 		}
-// 		else if(a===null) {
-// 			break;
 // 		}
 // 		else {
 // 			alert('Вы ничего не ввели,Повторте попытку');
@@ -51,7 +45,7 @@ console.log(mainList);
 // }
 // do{
 // 	let a=prompt("Введите вид товара","");
-// 		if(a!='' && (typeof(a))==='string' && a.length<50) {
+// 		if((typeof(a))!==null && a!='' && (typeof(a))==='string' && a.length<50) {
 // 			if(!isNaN(a)) {
 // 				alert('Вы ввели число');
 // 				continue;
@@ -59,9 +53,6 @@ console.log(mainList);
 // 				mainList.shopGoods[i]=a;
 // 				i++;
 // 				count++;
-// 		}
-// 		else if(a===null) {
-// 			break;
 // 		}
 // 		else {
 // 			alert('Вы ничего не ввели,Повторте попытку');
