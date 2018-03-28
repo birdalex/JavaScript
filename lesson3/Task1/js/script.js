@@ -1,7 +1,7 @@
 let yourBudget,
 	yourShopName,
 	price=prompt('Цена');
-function start(){
+function start(){							// старт программы
   yourBudget=prompt("Введите Ваш бюджет","");
   while(isNaN(yourBudget) || yourBudget=='' || yourBudget==null){
   	yourBudget=prompt("Введите Ваш бюджет","");
@@ -19,21 +19,21 @@ let mainList={
 	open:true,
 	discount:false
 };
-function disSystem(){
+function disSystem(){					// дисконтная система
 	if(!mainList.discount==true){
 		let res=price-(price*0.8);
 		return res;
 	}
 };
-function dayBudget(){
+function dayBudget(){					// бюджет на день
 	return mainList.budget/30;
 }
-function hiringEmployers(){
+function hiringEmployers(){ 			// найм сотрудников
 	for(let i=0;i<4;i++) {
 	let employerName=prompt('Введити ваше имя');
 	mainList.employers[i] = i + ' - ' + employerName;
 	}
-};
+}
 for(let i=0; i<3;i++) {
 		let a=prompt("Введите вид товара","");
 		if(a!='' && (typeof(a))==='string' && a.length<50) {
