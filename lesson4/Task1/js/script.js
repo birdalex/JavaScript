@@ -1,5 +1,5 @@
 let yourBudget,
-	yourShopName,
+	yourShopName;
 	price=prompt('Цена');
 
 function start() {							// старт программы
@@ -48,13 +48,18 @@ let mainList={
 		}
 		
 	},
-	chooseShopItems:function chooseShopItems(){					// Ввод товаров
+	chooseShopItems:function chooseShopItems(){							// Ввод товаров
 		let items=prompt('Перечислите через запятую товары',"");
 		while(!isNaN(items)|| (typeof(items))=='' && (typeof(items)===null)) {
 			items=prompt('Еще раз',"");
 		};
 			mainList.shopItems=items.split(",");
-			mainList.shopItems.push(prompt('Подождите еще',""));
+			let temp=prompt('Подождите еще',"");
+			while(!isNaN(temp)|| (typeof(temp))=='' && (typeof(temp)===null)) {
+			temp=prompt('Еще раз',"");
+		};
+			mainList.shopItems.push(temp);
+			
 			mainList.shopItems.sort();
 	},
 	
