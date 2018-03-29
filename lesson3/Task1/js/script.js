@@ -17,11 +17,11 @@ let mainList={
 
 	},
 	open:true,
-	discount:false
+	discount:true
 };
 function disSystem(){					// дисконтная система
-	if(!mainList.discount==true){
-		let res=price-(price*0.8);
+	if(mainList.discount==true){
+		let res=price*0.8;
 		return res;
 	}
 };
@@ -31,9 +31,22 @@ function dayBudget(){					// бюджет на день
 function hiringEmployers(){ 			// найм сотрудников
 	for(let i=0;i<4;i++) {
 	let employerName=prompt('Введити ваше имя');
-	mainList.employers[i] = i + ' - ' + employerName;
+		if(employerName!='' && (typeof(employerName))==='string' && employerName.length<50){
+			if(!isNaN(employerName )){
+				alert('Вы ввели число');
+				i=i-1;
+				continue;
+			}
+		mainList.employers[i] = i+1 + ' - ' + employerName;
+		}
+		else {
+			alert('Вы ничего не ввели,Повторте попытку');
+			i=i-1;
+		}
 	}
+	
 }
+hiringEmployers();
 for(let i=0; i<3;i++) {
 		let a=prompt("Введите вид товара","");
 		if(a!='' && (typeof(a))==='string' && a.length<50) {
