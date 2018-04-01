@@ -20,6 +20,11 @@ let btn=document.getElementById('open-btn'),
 	countBudgetValue=document.querySelector('.count-budget-value'),
 	chooseItem=document.querySelector('.choose-item'),
 	hireEmployersItem=document.querySelectorAll('.hire-employers-item');
+	let goodsItemBtn=button[1];
+	let countBudgetBtn=button[2];
+	let hireEmployersBtn=button[3];
 
 	
-console.log(name);
+console.log(goodsItemBtn);
+console.log(countBudgetBtn);
+console.log(hireEmployersBtn);
