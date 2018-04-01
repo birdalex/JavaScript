@@ -54,12 +54,12 @@ let mainList={
 			items=prompt('Еще раз',"");
 		};
 			mainList.shopItems=items.split(",");
-			let temp=prompt('Подождите еще',"");
+			
+			// let temp=prompt('Подождите еще',"");
 			while(!isNaN(temp)|| (typeof(temp))=='' && (typeof(temp)===null)) {
 			temp=prompt('Еще раз',"");
 		};
-			mainList.shopItems.push(temp);
-			
+			// mainList.shopItems.push(temp);
 			mainList.shopItems.sort();
 	},
 	
