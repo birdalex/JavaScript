@@ -89,7 +89,7 @@ timeValue.addEventListener('change',()=>{
 		console.log('Такого не может быть!')
 		mainList.open=false;
 	}
-	else if (time<8 && time<20) {
+	else if (time>8 && time<20) {
 		console.log('Время работать');
 		mainList.open=true;
 	 }	
