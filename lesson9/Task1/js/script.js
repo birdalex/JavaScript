@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded',function(){
 			minutes.innerHTML=minutesNum;
 			seconds.innerHTML=seconsNum;
 			// console.log(dateFinish);
-			},1000)
+			},1000);
 	}
 
 	timerLeft(2018,03,06);
@@ -80,7 +80,7 @@ window.addEventListener('DOMContentLoaded',function(){
 		requestAnimationFrame(function animate(time) {
 			let timePassed=time-start;
 			if(timePassed>duration) {
-				timePassed=duration
+				timePassed=duration;
 			}
 
 			draw(timePassed);
@@ -88,8 +88,8 @@ window.addEventListener('DOMContentLoaded',function(){
 			if(timePassed<duration){
 				requestAnimationFrame(animate);
 			}
-		})
-	};
+		});
+	}
 	menu.addEventListener('click',function(e) {
 		e.preventDefault();
 		animate(function(timePassed) {
@@ -109,7 +109,7 @@ window.addEventListener('DOMContentLoaded',function(){
 			this.classList.add=('more-splah');
 			overlay.style.display='block';
 			document.body.style.overflow = 'hidden';
-		})
+		});
 	}												
 														//end
 	
