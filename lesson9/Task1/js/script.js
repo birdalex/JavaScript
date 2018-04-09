@@ -6,7 +6,9 @@ window.addEventListener('DOMContentLoaded',function(){
 		more =document.querySelector('.more'),
 		overlay=document.querySelector('.overlay'),
 		close=document.querySelector('.popup-close'),
-		menu=document.getElementsByTagName('nav')[0];
+		menu=document.getElementsByTagName('nav')[0],
+		disbtn=document.querySelectorAll('.description-btn');
+
 													//tabs
 
 	function hideContent(a) {
@@ -98,4 +100,17 @@ window.addEventListener('DOMContentLoaded',function(){
 	});
 
 														//end
+														//Модальное окно на tabs
+	
+	for(let i=0;i<disbtn.length;i++){
+		let btnDis;
+		btnDis=disbtn[i];
+		btnDis.addEventListener('click',function(){
+			this.classList.add=('more-splah');
+			overlay.style.display='block';
+			document.body.style.overflow = 'hidden';
+		})
+	}												
+														//end
+	
 });

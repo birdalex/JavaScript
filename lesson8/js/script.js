@@ -6,7 +6,9 @@ window.addEventListener('DOMContentLoaded',function(){
 		more =document.querySelector('.more'),
 		overlay=document.querySelector('.overlay'),
 		close=document.querySelector('.popup-close'),
-		menu=document.getElementsByTagName('nav')[0];
+		menu=document.getElementsByTagName('nav')[0],
+		disbtn=document.querySelector('.description-btn')[0];
+		console.log(disbtn);
 													//tabs
 
 	function hideContent(a) {
@@ -98,4 +100,10 @@ window.addEventListener('DOMContentLoaded',function(){
 	});
 
 														//end
+	disbtn.addEventListener('click',
+		function(){
+			this.classList.add=('more-splah');
+			overlay.style.display='block';
+			document.body.style.overflow = 'hidden';
+		});
 });
