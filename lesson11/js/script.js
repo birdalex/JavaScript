@@ -121,7 +121,8 @@ window.addEventListener('DOMContentLoaded',function(){
 
 	let form=document.getElementsByClassName('main-form')[0],
 		input=form.getElementsByTagName('input'),
-		contactForm=document.getElementsByClassName('contact-form')[0],
+		// contactForm=document.getElementsByClassName('contact-form')[0],
+		contactForm=document.getElementById('form'),
 		inputContact=contactForm.getElementsByTagName('input'),
 		statusMessage=document.createElement('div');
 		statusMessage.classList.add('status');
@@ -159,9 +160,9 @@ window.addEventListener('DOMContentLoaded',function(){
 			request.open("POST",'server.php');
 			request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
-			let formData=new FormData();
-			formData.append('userfile',inputContact[0]);
-			formData.append('userfile',inputContact[1]);
+			let formData=new FormData(contactForm);
+			// formData.append('userfile',inputContact[0]);
+			// formData.append('userfile',inputContact[1]);
 
 			request.send(formData);
 			request.onreadystatechange=function(){
