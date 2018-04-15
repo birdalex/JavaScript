@@ -242,7 +242,6 @@ window.addEventListener('DOMContentLoaded',function(){
 				 restDays=document.getElementsByClassName('counter-block-input')[1],
 				 totalValue=document.getElementById('total'),
 				 place=document.getElementById('select'),
-				 // mumbai=document.getElementById('mumbai').setAttribute('selected',selected);
 				 personsSum=0,
 				 daysSum=0,
 				 total=0;
