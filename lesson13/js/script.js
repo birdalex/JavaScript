@@ -248,15 +248,24 @@ window.addEventListener('DOMContentLoaded',function(){
 				 totalValue.innerHTML=0;
 				 persons.value='';
 				 restDays.value='';
+				 function isInteger(num) {
+				  	// console.log('дробное')
+					  return (num ^ 0) === num
+					  // console.log('дробное')
+					};
+				
 
 				 persons.addEventListener('change',function(){
+
 				 	personsSum=+this.value.replace(/^0+/, '');
-				 	// console.log(personsSum);
-				 	if(personsSum>0&&personsSum!=0){
+				 	
+				 	if(personsSum>0&&personsSum!=0&&isInteger(personsSum)&&isInteger(daysSum)&&daysSum!=0){
 				 		total=(daysSum+personsSum)*4000;
 					 	if(restDays.value==''){
 					 		totalValue.innerHTML=0;
-					 	} else {
+					 	} 
+					 	
+					 	else {
 					 		let a =total;
 				 			totalValue.innerHTML=a*place.options[place.selectedIndex].value;
 					 		// totalValue.innerHTML=total;
@@ -276,7 +285,7 @@ window.addEventListener('DOMContentLoaded',function(){
 				 restDays.addEventListener('change',function(){
 				 	daysSum=+this.value.replace(/^0+/, '');
 				 	// parseInt(daysSum);
-					if(daysSum>0&&daysSum!=0){
+					if(daysSum>0&&daysSum!=0&&isInteger(daysSum)&&isInteger(personsSum)&&personsSum!=0){
 							total=(daysSum+personsSum)*4000;
 					 		if(persons.value==''){
 					 		totalValue.innerHTML=0;
@@ -305,6 +314,7 @@ window.addEventListener('DOMContentLoaded',function(){
 				 		
 				 	}
 				 });
+
 
 
  });
