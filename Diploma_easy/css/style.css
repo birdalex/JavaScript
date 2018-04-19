@@ -93,7 +93,9 @@
   line-height: 19px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
 }
-
+.main-cards-item:nth-child(3){
+  display: none;
+}
 .main-cards-item-active {
   border: 3px solid #1f8ce2;
 }
@@ -347,6 +349,7 @@
   text-align: center;
   background-color: #191e25;
   background-image: linear-gradient(to right, #262b35 0%, #2f3540 100%);
+  z-index: 7;
 }
 
 .custom-info label {
@@ -427,13 +430,14 @@
   display: none;
   width: 370px;
   height: 600px;
+  z-index: 7;
 }
 
 .custom-char .person-easy {
   width: 230px;
   height: 500px;
   margin: 0 auto;
-  background: url("../img/construct-1.png") center no-repeat;
+  background:url(../img/construct-5.png) center no-repeat;
   background-size: 70%;
 }
 
@@ -515,6 +519,7 @@
   padding: 60px 20px 0 20px;
   background-color: #191e25;
   background-image: linear-gradient(to right, #262b35 0%, #2f3540 100%);
+  z-index: 7;
 }
 
 .custom-style .style-text {
