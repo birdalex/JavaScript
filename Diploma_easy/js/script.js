@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded',function(){
 	});
 										// input age
 	personAge.addEventListener('change',function(){
-		if(personAge.value!=''&&!isNaN(personAge.value)&&personAge.value>=30&&personAge.value<=65){
+		if(personAge.value!=''&&!isNaN(personAge.value)&&personAge.value>=35&&personAge.value<=65){
 			textContent='Возраст,лет';
 				label[1].style.color='#04ff00';
 				pass=true;
@@ -74,22 +74,121 @@ window.addEventListener('DOMContentLoaded',function(){
 				label[1].style.color='red';
 		}
 	});
-										// выбор пола
-	 personSex[0].addEventListener('change',function(){	
-		person.style.backgroundImage = 'url(img/construct-5.png)';
-		sex.textContent=personSex[0].value;
-	})
-	 personSex[1].addEventListener('change',function(){
-	 	person.style.backgroundImage = 'url(img/construct-1.png)';
-	 	sex.textContent=personSex[1].value;
-	 })
 
+									
 	 									// выбор пол. взглядов
 	selectViews.addEventListener('change',function(){
 		views.textContent=this.options[this.selectedIndex].value;
 	})
 
+
+										//slider and выбор пола
+
+	let next=document.querySelector('.next'),
+		prev=document.querySelector('.prev'),
+		preview=document.querySelector('.preview'),
+		photo3=document.getElementsByClassName('photo-3')[0],
+		count=0;
+
+
+		if(personSex[0].checked){
+			count=5;
+			person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+			photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			sex.textContent=personSex[0].value;
+		}
+		else if(personSex[1].checked) {
+			count=1;
+			person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+			photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)'
+			sex.textContent=personSex[1].value;
+		}
+
+		personSex[0].addEventListener('change',function(){
+			count=5;
+			person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+			photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			sex.textContent=personSex[0].value;
+
+		})
+		personSex[1].addEventListener('change',function(){
+			count=1;
+			person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+			photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			sex.textContent=personSex[1].value;
+			
+		})
+
+	 
+											//вперед
+		next.addEventListener('click',()=>{
+			count++;
+			if(personSex[1].checked){
+				if(count>4){
+					count=1;
+					preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+					person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+					photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+				}
+			preview.style.backgroundImage ='url(img/construct-'+count+'.png)';
+			person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			sex.textContent=personSex[1].value;
+			}
+			else if(personSex[0].checked){
+					if(count>8){
+					count=5;
+					preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+					person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+					photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+				}
+			preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+			person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			sex.textContent=personSex[0].value;
+			}
+		});
+											//назад
+
+		prev.addEventListener('click',()=>{
+			count--;
+			if(personSex[1].checked){
+				if(count<1){
+					count=5;
+					count--;
+					preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+					person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+					photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+				}
+			preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+			person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			sex.textContent=personSex[1].value;
+			}
+			else if(personSex[0].checked){
+					if(count<5){
+					count=9;
+					count--;
+					preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+					person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+					photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+				}
+			preview.style.backgroundImage='url(img/construct-'+count+'.png)';
+			person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			sex.textContent=personSex[0].value;
+			}
+			
+			
+		});
+
+										
 										//btn Готово, если все true заполняем поля новой карточки
+
 	readyBtn.addEventListener('click',function(){
 	
 		if(pass==true){
@@ -98,8 +197,9 @@ window.addEventListener('DOMContentLoaded',function(){
 				name.textContent=personName.value;
 				age.textContent=personAge.value;
 				views.textContent=selectViews.options[selectViews.selectedIndex].value;
-				sex.textContent=personSex[0].value;
 				bio.textContent=personBio.value;
+				// sex.textContent=personSex[0].value;
+				// sex.textContent=personSex[1].value;
 				mainCardsItem[1].style.display='block';
 				customInfo.classList.add('fadeOutDown');
 				customInfo.classList.remove('fadeInDown');
