@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded',function(){
 	});
 								// input age
 	personAge.addEventListener('change',function(){
-		if(personAge.value!=''&&!isNaN(personAge.value)&&personAge.value>=35&&personAge.value<=65){
+		if(personAge.value!=''&&!isNaN(personAge.value)&&personAge.value>=35&&personAge.value<=80){
 			textContent='Возраст,лет';
 				label[1].style.color='#04ff00';
 				passAge=true;
@@ -112,7 +112,7 @@ window.addEventListener('DOMContentLoaded',function(){
 		}
 		else{
 			// pass=false;
-				label[1].textContent='Повторите попытку';
+				label[1].textContent='Введите возраст от 35-80';
 				label[1].style.color='red';
 		}
 	});

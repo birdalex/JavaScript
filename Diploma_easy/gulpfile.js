@@ -3,7 +3,17 @@ var browserSync  = require('browser-sync').create();
 var sass         = require('gulp-sass');
 var concatCss    = require('gulp-concat-css');
 
-
+gulp.task('browser-sync', function() {
+    browsersync({
+        server: {
+            baseDir: '../'
+        },
+        notify: false,
+        // open: false,
+         tunnel: true,
+         tunnel: "projectmane", //Demonstration page: http://projectmane.localtunnel.me
+    })
+});
 // Запускаем сервер + отслеживаем sass/html файлы
 gulp.task('serve', ['sass'], function() {
 
