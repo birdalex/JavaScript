@@ -80,24 +80,29 @@ window.addEventListener('DOMContentLoaded',function(){
 	
 										//input name
 	personName.addEventListener('change',function(){
-	
-		if((typeof(personName.value))==='string'&&personName.value!=''&&isNaN(personName.value)){
+			let str=personName.value;
+			str=/[^а-яА-Я -]/g.exec(this.value)
+			if(str&&isNaN(personName.value)){
+				label[0].textContent='Введите только кирилицу';
+				label[0].style.color='red';
+				passName=false;
+			}
+            
+			else if((typeof(personName.value))==='string'&&personName.value!=''&&isNaN(personName.value)&&!str)
+			{
 
 				label[0].textContent='Фамилия Имя Отчество';
 				label[0].style.color='#04ff00';
 				passName=true;	
-		}
-		else if(str){
-			label[0].textContent='Введите только кирилицу';
-		}
+			}
+			
 		else {
 				label[0].textContent='Повторите попытку';
 				label[0].style.color='red';
 		}
 
 	});
-	
-										// input age
+								// input age
 	personAge.addEventListener('change',function(){
 		if(personAge.value!=''&&!isNaN(personAge.value)&&personAge.value>=35&&personAge.value<=65){
 			textContent='Возраст,лет';
