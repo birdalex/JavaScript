@@ -248,14 +248,23 @@ window.addEventListener('DOMContentLoaded',function(){
 
 		let votingBtn=document.getElementById('voting'),
 			crimeBtn=document.getElementById('crime');
-			let res0=getRandomInt(0,100),
-				res1=getRandomInt(0,100);
-				res2=getRandomInt(0,100);
-			// console.log(res2);
-			let pass1=true;
-		votingBtn.addEventListener('click',()=>{
-			if(pass1==true){
+			
+			// console.log(result);
+			
+		votingBtn.addEventListener('click',()=>{	
 
+			let res0=getRandomInt(1,100),
+				res1=getRandomInt(1,100),
+				res2=getRandomInt(1,100);
+			let result=res0+res1+res2;
+
+				while (result!=100) {
+				res0=getRandomInt(1,100),
+				res1=getRandomInt(1,100);
+				res2=getRandomInt(1,100);
+				result=res0+res1+res2;
+			}
+			
 			progressBar[0].style.height=(res0+'%');
 			resultCount[0].textContent=(res0+'%');
 			progressBar[1].style.height=(res1+'%');
@@ -263,55 +272,61 @@ window.addEventListener('DOMContentLoaded',function(){
 			progressBar[2].style.height=(res2+'%');
 			resultCount[2].textContent=(res2+'%');
 
-				if(res0>res1&&res0>res2){
-					mainCardsItem[0].classList.add('main-cards-item-active')
-				}
-				if(res1>res0&&res1>res2){
-					mainCardsItem[1].classList.add('main-cards-item-active')
-				}
-				if(res2>res0&&res2>res1){
-					mainCardsItem[2].classList.add('main-cards-item-active')
-				}
-				pass1=false;
+			if(res0>res1&&res0>res2){
+				changeCardsActive1(0);
+			}
+			if(res1>res0&&res1>res2){
+				changeCardsActive1(1)
+			}
+			if(res2>res0&&res2>res1){
+				changeCardsActive1(2)
 			}
 
 		});
 
 		crimeBtn.addEventListener('click',()=>{
-			if(pass1==false){
-				if(res2==0){
-					res2=25;
-					progressBar[2].style.height=(res2+'%');
-					resultCount[2].textContent=(res2+'%');
-				}
-				else{
-					res2+=(res2*25)/100;
-					res2=parseInt(res2,10);
-					if(res2>100){
-						res2=100;
-						progressBar[2].style.height=(res2+'%');
-						resultCount[2].textContent=(res2+'%');
-					}
-					else{
-					progressBar[2].style.height=(res2+'%');
-					resultCount[2].textContent=(res2+'%');
-					}
-				}
+			let res0=getRandomInt(1,100),
+				res1=getRandomInt(1,100),
+				res2=getRandomInt(1,100)+25;
+			let result=res0+res1+res2;
 
-				if(res2>res0&&res2>res1){
-					for(let i=0;i<mainCardsItem.length;i++) {
-						if(mainCardsItem[i].classList.contains('main-cards-item-active')){
-							mainCardsItem[i].classList.remove('main-cards-item-active');
-						}
-						mainCardsItem[2].classList.add('main-cards-item-active');
-						
-			    	}
-				
-				}
+				while (result!=100) {
+				res0=getRandomInt(1,100),
+				res1=getRandomInt(1,100);
+				res2=getRandomInt(1,100)+25;
+				result=res0+res1+res2;
+			}
+			
+
+			progressBar[0].style.height=(res0+'%');
+			resultCount[0].textContent=(res0+'%');
+			progressBar[1].style.height=(res1+'%');
+			resultCount[1].textContent=(res1+'%');
+			progressBar[2].style.height=(res2+'%');
+			resultCount[2].textContent=(res2+'%');
+			if(res0>res1&&res0>res2){
+				changeCardsActive1(0);
+			}
+			if(res1>res0&&res1>res2){
+				changeCardsActive1(1)
+			}
+			if(res2>res0&&res2>res1){
+				changeCardsActive1(2)
 			}
 				
 		});
+										// Выбор активной карточки 
+		function changeCardsActive1(num){
+				for(let i=0;i<mainCardsItem.length;i++) {
+					if(mainCardsItem[i].classList.contains('main-cards-item-active')){
+						mainCardsItem[i].classList.remove('main-cards-item-active');
+					}
+					mainCardsItem[num].classList.add('main-cards-item-active');
+						
+			    	}
 		
+		};
+										//сброс активной карточки
 		function changeCardsActive(){
 			for(let i=0;i<mainCardsItem.length;i++) {
 			    if(mainCardsItem[i].classList.contains('main-cards-item-active')){
@@ -331,12 +346,9 @@ window.addEventListener('DOMContentLoaded',function(){
 			passName=false,
 			passAge=false,
 			passBio=false;
-			selectViews[0].checked=true;
-			personSex.value = 'Либеральные';
 			res0=0;
 			res1=0;
 			res2=0;
-			pass1=true;
 			changeCardsActive();
 			progressBar[0].style.height=(res0+'%');
 			resultCount[0].textContent=(res0+'%');
@@ -344,9 +356,6 @@ window.addEventListener('DOMContentLoaded',function(){
 			resultCount[1].textContent=(res1+'%');
 			progressBar[2].style.height=(res2+'%');
 			resultCount[2].textContent=(res2+'%');
-			res0=getRandomInt(0,100),
-			res1=getRandomInt(0,100)
-			res2=getRandomInt(0,100);
 			label[0].style.color='#f95959';
 			label[1].style.color='#f95959';
 			label[4].style.color='#f95959';
@@ -355,7 +364,9 @@ window.addEventListener('DOMContentLoaded',function(){
 			count=5;
 			person.style.backgroundImage = 'url(img/construct-'+count+'.png)';
 			preview.style.backgroundImage='url(img/construct-'+count+'.png)';
-			selectViews.options[selectViews.selectedIndex].value[1];
+			photo3.style.backgroundImage = 'url(img/construct-'+count+'.png)';
+			sex.textContent=personSex[0].value;
+			views.textContent=selectViews.options[selectViews.selectedIndex].value;
 			main.classList.add('fadeOut');
 			main.classList.remove('fadeIn');
 			main.style.display='none';
